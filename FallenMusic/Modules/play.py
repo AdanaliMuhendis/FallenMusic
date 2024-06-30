@@ -60,13 +60,13 @@ from FallenMusic.Helpers.thumbnails import gen_qthumb, gen_thumb
 
 
 @app.on_message(
-    filters.command(["play", "vplay", "p"])
+    filters.command(["play", "vplay", "oynat"])
     & filters.group
     & ~filters.forwarded
     & ~filters.via_bot
 )
 async def play(_, message: Message):
-    fallen = await message.reply_text("» ᴘʀᴏᴄᴇssɪɴɢ, ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...")
+    fallen = await message.reply_text("💞")
     try:
         await message.delete()
     except:
@@ -77,7 +77,7 @@ async def play(_, message: Message):
             get = await app.get_chat_member(message.chat.id, ASS_ID)
         except ChatAdminRequired:
             return await fallen.edit_text(
-                f"» ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ғᴏʀ ɪɴᴠɪᴛɪɴɢ {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
             )
         if get.status == ChatMemberStatus.BANNED:
             unban_butt = InlineKeyboardMarkup(
@@ -91,7 +91,7 @@ async def play(_, message: Message):
                 ]
             )
             return await fallen.edit_text(
-                text=f"» {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ɪs ʙᴀɴɴᴇᴅ ɪɴ {message.chat.title}\n\n𖢵 ɪᴅ : `{ASS_ID}`\n𖢵 ɴᴀᴍᴇ : {ASS_MENTION}\n𖢵 ᴜsᴇʀɴᴀᴍᴇ : @{ASS_USERNAME}\n\nᴘʟᴇᴀsᴇ ᴜɴʙᴀɴ ᴛʜᴇ ᴀssɪsᴛᴀɴᴛ ᴀɴᴅ ᴘʟᴀʏ ᴀɢᴀɪɴ...",
+                text=f"<b>» Asistan, grubunuz veya kanalınızda yasaklanmış, lütfen yasağı kaldırın.\n\n**Asistan Kullanıcı Adı:** @{0}\n**Asistan Kimliği:** {1}</b>",
                 reply_markup=unban_butt,
             )
     except UserNotParticipant:
@@ -106,28 +106,28 @@ async def play(_, message: Message):
                 invitelink = await app.export_chat_invite_link(message.chat.id)
             except ChatAdminRequired:
                 return await fallen.edit_text(
-                    f"» ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ғᴏʀ ɪɴᴠɪᴛɪɴɢ {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                    f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
                 )
             except Exception as ex:
                 return await fallen.edit_text(
-                    f"ғᴀɪʟᴇᴅ ᴛᴏ ɪɴᴠɪᴛᴇ {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}.\n\n**ʀᴇᴀsᴏɴ :** `{ex}`"
+                    f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
                 )
         if invitelink.startswith("https://t.me/+"):
             invitelink = invitelink.replace("https://t.me/+", "https://t.me/joinchat/")
         anon = await fallen.edit_text(
-            f"ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...\n\nɪɴᴠɪᴛɪɴɢ {ASS_NAME} ᴛᴏ {message.chat.title}."
+            f"<b>» Asistan Hesabı 5 Saniye içinde katılacak.. Lütfen Bekleyiniz!</b>"
         )
         try:
             await app2.join_chat(invitelink)
             await asyncio.sleep(2)
             await fallen.edit_text(
-                f"{ASS_NAME} ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ,\n\nsᴛᴀʀᴛɪɴɢ sᴛʀᴇᴀᴍ..."
+                f"<b>» Asistan Hesabı[{0}] Başarıyla Katıldı.\n\nMüzik Şimdi Başlatılıyor</b>"
             )
         except UserAlreadyParticipant:
             pass
         except Exception as ex:
             return await fallen.edit_text(
-                f"ғᴀɪʟᴇᴅ ᴛᴏ ɪɴᴠɪᴛᴇ {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}.\n\n**ʀᴇᴀsᴏɴ :** `{ex}`"
+                f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
             )
         try:
             await app2.resolve_peer(invitelink)
@@ -144,7 +144,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"» sᴏʀʀʏ ʙᴀʙʏ, ᴛʀᴀᴄᴋ ʟᴏɴɢᴇʀ ᴛʜᴀɴ  {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ ᴏɴ {BOT_NAME}."
+                f "<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika\n**Alınan Süre:** {1} dakika(s)<b>"
             )
 
         file_name = get_file_name(audio)
@@ -169,17 +169,17 @@ async def play(_, message: Message):
                 secmul *= 60
 
         except Exception as e:
-            return await fallen.edit_text(f"sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ\n\n**ᴇʀʀᴏʀ :** `{e}`")
+            return await fallen.edit_text(f"<b>»Parça ayrıntıları getirilemedi. Başka şarkı dene.<b>")
 
         if (dur / 60) > DURATION_LIMIT:
             return await fallen.edit_text(
-                f"» sᴏʀʀʏ ʙᴀʙʏ, ᴛʀᴀᴄᴋ ʟᴏɴɢᴇʀ ᴛʜᴀɴ  {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ ᴏɴ {BOT_NAME}."
+                f"<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika\n**Alınan Süre:** {1} dakika(s)<b>"
             )
         file_path = audio_dl(url)
     else:
         if len(message.command) < 2:
-            return await fallen.edit_text("» ᴡʜᴀᴛ ᴅᴏ ʏᴏᴜ ᴡᴀɴɴᴀ ᴘʟᴀʏ ʙᴀʙʏ ?")
-        await fallen.edit_text("🔎")
+            return await fallen.edit_text("<b>»Parça ayrıntıları getirilemedi. Başka şarkı dene.<b>")
+        await fallen.edit_text("💞")
         query = message.text.split(None, 1)[1]
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -195,11 +195,11 @@ async def play(_, message: Message):
 
         except Exception as e:
             LOGGER.error(str(e))
-            return await fallen.edit("» ғᴀɪʟᴇᴅ ᴛᴏ ᴘʀᴏᴄᴇss ᴏ̨ᴜᴇʀʏ, ᴛʀʏ ᴘʟᴀʏɪɴɢ ᴀɢᴀɪɴ...")
+            return await fallen.edit("<b>» Hatalı Parça Listesi...<b>")
 
         if (dur / 60) > DURATION_LIMIT:
             return await fallen.edit(
-                f"» sᴏʀʀʏ ʙᴀʙʏ, ᴛʀᴀᴄᴋ ʟᴏɴɢᴇʀ ᴛʜᴀɴ  {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ ᴏɴ {BOT_NAME}."
+                f"<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika\n**Alınan Süre:** {1} dakika(s)<b>"
             )
         file_path = audio_dl(url)
 
@@ -221,7 +221,7 @@ async def play(_, message: Message):
         qimg = await gen_qthumb(videoid, message.from_user.id)
         await message.reply_photo(
             photo=qimg,
-            caption=f"**➻ ᴀᴅᴅᴇᴅ ᴛᴏ ᴏ̨ᴜᴇᴜᴇ ᴀᴛ {position}**\n\n‣ **ᴛɪᴛʟᴇ :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n‣ **ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}` ᴍɪɴᴜᴛᴇs\n‣ **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {ruser}",
+            caption=f"➲ <b>Sıraya Eklendi #{0}\n\n‣ Parça :</b> {1}\n<b>‣ Süre :</b> {2} Dakika\n<b>‣ Talep Eden ☔️ :</b> {3}",
             reply_markup=buttons,
         )
     else:
@@ -235,15 +235,15 @@ async def play(_, message: Message):
 
         except NoActiveGroupCall:
             return await fallen.edit_text(
-                "**» ɴᴏ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ ғᴏᴜɴᴅ.**\n\nᴩʟᴇᴀsᴇ ᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ."
+                "<b>»Aktif Sesli Sohbet Mevcut Değil...<b>"
             )
         except TelegramServerError:
             return await fallen.edit_text(
-                "» ᴛᴇʟᴇɢʀᴀᴍ ɪs ʜᴀᴠɪɴɢ sᴏᴍᴇ ɪɴᴛᴇʀɴᴀʟ ᴘʀᴏʙʟᴇᴍs, ᴘʟᴇᴀsᴇ ʀᴇsᴛᴀʀᴛ ᴛʜᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ."
+                "» Sonraki Sonucu Alma,\n\nLütfen Bekleyiniz..."
             )
         except UnMuteNeeded:
             return await fallen.edit_text(
-                f"» {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ɪs ᴍᴜᴛᴇᴅ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ,\n\nᴘʟᴇᴀsᴇ ᴜɴᴍᴜᴛᴇ {ASS_MENTION} ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ ᴀɴᴅ ᴛʀʏ ᴘʟᴀʏɪɴɢ ᴀɢᴀɪɴ."
+                f"<b>Asistan Sesli Sohbette.</b>\n\nAsistan Sesli Sohbette Değilse Tekrar Komut Verin <code>/reboot</code> Yeniden Başlatın.</b>"
             )
 
         imgt = await gen_thumb(videoid, message.from_user.id)
@@ -251,7 +251,7 @@ async def play(_, message: Message):
         await add_active_chat(message.chat.id)
         await message.reply_photo(
             photo=imgt,
-            caption=f"**➻ sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ**\n\n‣ **ᴛɪᴛʟᴇ :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n‣ **ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}` ᴍɪɴᴜᴛᴇs\n‣ **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {ruser}",
+            caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> <a href={0}>{1}</a>\n<b>⌛️Süre :</b> {2} 𝒟𝒶𝓀𝒾𝓀𝒶\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {3}",
             reply_markup=buttons,
         )
 
