@@ -27,7 +27,7 @@ from youtube_search import YoutubeSearch
 from FallenMusic import app
 
 
-@app.on_message(filters.command(["search", "bul", "indir", "song"]))
+@app.on_message(filters.command(["search"]))
 async def ytsearch(_, message: Message):
     try:
         await message.delete()
