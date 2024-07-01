@@ -77,7 +77,7 @@ async def play(_, message: Message):
             get = await app.get_chat_member(message.chat.id, ASS_ID)
         except ChatAdminRequired:
             return await fallen.edit_text(
-                f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
+                f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: `{ex}`</b>"
             )
         if get.status == ChatMemberStatus.BANNED:
             unban_butt = InlineKeyboardMarkup(
@@ -91,7 +91,7 @@ async def play(_, message: Message):
                 ]
             )
             return await fallen.edit_text(
-                text=f"<b>» Asistan, grubunuz veya kanalınızda yasaklanmış, lütfen yasağı kaldırın.\n\n**Asistan Kullanıcı Adı:** @{0}\n**Asistan Kimliği:** {1}</b>",
+                text=f"<b>» Asistan, grubunuz veya kanalınızda yasaklanmış, lütfen yasağı kaldırın.\n\n**Asistan Kullanıcı Adı:** @{ASS_USERNAME}\n**Asistan Kimliği:** `{ASS_ID}`</b>",
                 reply_markup=unban_butt,
             )
     except UserNotParticipant:
@@ -106,11 +106,11 @@ async def play(_, message: Message):
                 invitelink = await app.export_chat_invite_link(message.chat.id)
             except ChatAdminRequired:
                 return await fallen.edit_text(
-                    f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
+                    f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: `{ex}`</b>"
                 )
             except Exception as ex:
                 return await fallen.edit_text(
-                    f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
+                    f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: `{ex}`</b>"
                 )
         if invitelink.startswith("https://t.me/+"):
             invitelink = invitelink.replace("https://t.me/+", "https://t.me/joinchat/")
@@ -127,7 +127,7 @@ async def play(_, message: Message):
             pass
         except Exception as ex:
             return await fallen.edit_text(
-                f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: {0}</b>"
+                f"<b>» Asistan Hesabını sohbetinize davet ederken İstisna Oluştu.\n\n**Nedeni**: `{ex}`</b>"
             )
         try:
             await app2.resolve_peer(invitelink)
@@ -221,7 +221,7 @@ async def play(_, message: Message):
         qimg = await gen_qthumb(videoid, message.from_user.id)
         await message.reply_photo(
             photo=qimg,
-            caption=f"➲ <b>Sıraya Eklendi {position}\n\n‣ Parça :</b> [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n<b>‣ Süre :</b> `{duration}` Dakika\n<b>‣ Talep Eden ☔️ :</b> {req_by}",
+            caption=f"➲ <b>Sıraya Eklendi {position}\n\n‣ Parça :</b> [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n<b>‣ Süre :</b> `{duration}` 𝒟𝒶𝓀𝒾𝓀𝒶\n<b>‣ Talep Eden ☔️ :</b> {ruser}",
             reply_markup=buttons,
         )
     else:
