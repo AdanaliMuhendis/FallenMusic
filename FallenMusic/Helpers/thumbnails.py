@@ -84,7 +84,7 @@ async def gen_thumb(videoid, user_id):
                 if resp.status == 200:
                     f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
                     await f.write(await resp.read())
-                    await f.close()
+                    await f.close(True)
 
         try:
             wxy = await app.download_media(
@@ -229,7 +229,7 @@ async def gen_qthumb(videoid, user_id):
                 if resp.status == 200:
                     f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
                     await f.write(await resp.read())
-                    await f.close()
+                    await f.close(True)
 
         try:
             wxy = await app.download_media(
