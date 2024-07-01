@@ -221,7 +221,7 @@ async def play(_, message: Message):
         qimg = await gen_qthumb(videoid, message.from_user.id)
         await message.reply_photo(
             photo=qimg,
-            caption=f"➲ <b>Sıraya Eklendi #{0}\n\n‣ Parça :</b> {1}\n<b>‣ Süre :</b> {2} Dakika\n<b>‣ Talep Eden ☔️ :</b> {3}",
+            caption=f"➲ <b>Sıraya Eklendi {position}\n\n‣ Parça :</b> [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n<b>‣ Süre :</b> `{duration}` Dakika\n<b>‣ Talep Eden ☔️ :</b> {req_by}",
             reply_markup=buttons,
         )
     else:
@@ -251,7 +251,7 @@ async def play(_, message: Message):
         await add_active_chat(message.chat.id)
         await message.reply_photo(
             photo=imgt,
-            caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> <a href={0}>{1}</a>\n<b>⌛️Süre :</b> {2} 𝒟𝒶𝓀𝒾𝓀𝒶\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {3}",
+            caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n<b>⌛️Süre :</b> `{duration}`\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {req_by}",
             reply_markup=buttons,
         )
 
