@@ -105,6 +105,6 @@ async def on_stream_end(pytgcalls, update: Update):
         await app.send_photo(
             chat_id=chat_id,
             photo=img,
-            caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> <a href={0}>{1}</a>\n<b>⌛️Süre :</b> {2} 𝒟𝒶𝓀𝒾𝓀𝒶\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {3}",
+            caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n<b>⌛️Süre :</b> `{duration}`\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {req_by}",
             reply_markup=buttons,
         )
