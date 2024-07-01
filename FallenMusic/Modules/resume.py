@@ -40,6 +40,6 @@ async def res_str(_, message: Message):
     await stream_on(message.chat.id)
     await pytgcalls.resume_stream(message.chat.id)
     return await message.reply_text(
-        text=f"➻ Yayın Duraklatıldı 😒 🎄\n│ \n↬ Tarafından : {0} 🥀",
+        text=f"➻ Yayın Duraklatıldı 😒 🎄\n│ \n↬ Tarafından : {req_by} 🥀",
         reply_markup=close_key,
     )
