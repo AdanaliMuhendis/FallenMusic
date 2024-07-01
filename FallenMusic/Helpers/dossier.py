@@ -40,16 +40,16 @@ START_TEXT = """
 HELP_TEXT = f"""
 <u>❄ **Kullanıcılar İçin Komutlar {BOT_NAME} :**</u>
 
-๏ /play : İstenilen parçayı görüntülü sohbette yayınlamaya başlar.
-๏ /pause : Mevcut oynatma akışını duraklatır.
-๏ /resume : Duraklatılan akışı devam ettirir.
-๏ /skip : Mevcut oynatma akışını atla ve sıradaki parçayı oynatmaya başlar.
-๏ /end : Listeyi temizler ve mevcut oynatma akışını sonlandırır.
+๏ /oynat : İstenilen parçayı görüntülü sohbette yayınlamaya başlar.
+๏ /dur : Mevcut oynatma akışını duraklatır.
+๏ /devam : Duraklatılan akışı devam ettirir.
+๏ /atla-lehaaa : Mevcut oynatma akışını atla ve sıradaki parçayı oynatmaya başlar.
+๏ /son : Listeyi temizler ve mevcut oynatma akışını sonlandırır.
 
 ๏ /ping : Botun ping ve sistem istatistiklerini gösterir.
 ๏ /sudolist : Yetkili Kullanıcı listesi.
 
-๏ /song :  Herhangi bir parçayı indirir.
+๏ /bul-indir :  Herhangi bir parçayı indirir.
 
 ๏ /search :  Youtube'dan herhangi bir parçayı mp3 veya mp4 formatında indirir.
 """
