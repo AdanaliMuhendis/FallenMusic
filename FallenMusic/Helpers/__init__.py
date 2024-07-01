@@ -29,4 +29,4 @@ from .formatters import *
 from .gets import *
 from .inline import *
 from .queue import *
-
+from .thumbnails import *
