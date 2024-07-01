@@ -102,7 +102,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_on(query.message.chat.id)
         await pytgcalls.resume_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"➻ Yayın Dewamkee 😅 🎄\n│ \n↬ Tarafından : {0} 🥀",
+            text=f"➻ Yayın Dewamkee 😅 🎄\n│ \n↬ Tarafından : {ruser} 🥀",
             reply_markup=close_key,
         )
 
@@ -114,7 +114,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_off(query.message.chat.id)
         await pytgcalls.pause_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"➻ Yayın Duraklatıldı 😒 🎄\n│ \n↬ Tarafından : {0} 🥀",
+            text=f"➻ Yayın Duraklatıldı 😒 🎄\n│ \n↬ Tarafından : {ruser} 🥀",
             reply_markup=close_key,
         )
 
@@ -125,7 +125,7 @@ async def admin_cbs(_, query: CallbackQuery):
         except:
             pass
         await query.message.reply_text(
-            text=f"➻ Yayın Durdu 🥺 🎄\n│ \n↬ Tarafından : {0} 🥀",
+            text=f"➻ Yayın Durdu 🥺 🎄\n│ \n↬ Tarafından : {ruser} 🥀",
             reply_markup=close_key,
         )
         await query.message.delete()
@@ -137,7 +137,7 @@ async def admin_cbs(_, query: CallbackQuery):
                 await _clear_(query.message.chat.id)
                 await pytgcalls.leave_group_call(query.message.chat.id)
                 await query.message.reply_text(
-                    text=f"➻ Parça Atlandı 🙃 🎄\n│ \n↬ Tarafından : {0} 🥀\n\n<b>» Sırada başka parça yok 😕</b> {1}, <b>Yatmaya Gidiyorum</b> 𝐄𝐥𝐥𝐞𝐬̧𝐦𝐞 😏",
+                    text=f"➻ Parça Atlandı 🙃 🎄\n│ \n↬ Tarafından : {ruser} 🥀\n\n<b>» Sırada başka parça yok 😕, Yatmaya Gidiyorum</b> 𝐄𝐥𝐥𝐞𝐬̧𝐦𝐞 😏",
                     reply_markup=close_key,
                 )
                 return await query.message.delete()
@@ -165,12 +165,12 @@ async def admin_cbs(_, query: CallbackQuery):
 
             img = await gen_thumb(videoid, user_id)
             await query.edit_message_text(
-                text=f"➻ Parça Atlandı 🙃 🎄\n│ \n↬ Tarafından : {0} 🥀",
+                text=f"➻ Parça Atlandı 🙃 🎄\n│ \n↬ Tarafından : {ruser} 🥀",
                 reply_markup=close_key,
             )
             return await query.message.reply_photo(
                 photo=img,
-                caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> <a href={0}>{1}</a>\n<b>⌛️Süre :</b> {2} 𝒟𝒶𝓀𝒾𝓀𝒶\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {3}",
+                caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n<b>⌛️Süre :</b> `{duration}`\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {ruser}",
                 reply_markup=buttons,
             )
 
