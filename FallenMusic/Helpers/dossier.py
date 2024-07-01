@@ -26,7 +26,7 @@ PM_START_TEXT = """
 <b>Merhaba</b> {0}, 🥀
 ๏ Saygılarımla 🥰  {1} !
 
-<b>➻ Hızlı & Muhteşem Özelliklere Sahip En İyi Telegram Müzik Botu.</b>
+<b>➻ En Sade Telegram Müzik Botu.</b>
 """
 
 START_TEXT = """
