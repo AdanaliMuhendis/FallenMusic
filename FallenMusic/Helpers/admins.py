@@ -84,7 +84,7 @@ def admin_check_cb(func: Callable) -> Callable:
             return await func(_, query)
         else:
             return await query.answer(
-                <b>» Bu Eylemi Gerçekleştirmek İçin Sesli Sohbet Haklarına Sahip Yönetici Olmanız Gerekir.</b>",
+               "<b>» Bu Eylemi Gerçekleştirmek İçin Sesli Sohbet Haklarına Sahip Yönetici Olmanız Gerekir.</b>",
                 show_alert=True,
             )
 
