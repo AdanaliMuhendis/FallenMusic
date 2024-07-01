@@ -41,7 +41,7 @@ async def skip_str(_, message: Message):
             await _clear_(message.chat.id)
             await pytgcalls.leave_group_call(message.chat.id)
             await message.reply_text(
-                text=f"➻ Parça Atlandı 🙃 🎄\n│ \n↬ Tarafından : {0} 🥀\n\n<b>» Sırada başka parça yok 😕</b> {1}, <b>Yatmaya Gidiyorum</b> 𝐄𝐥𝐥𝐞𝐬̧𝐦𝐞 😏",
+                text=f"➻ Parça Atlandı 🙃 🎄\n│ \n↬ Tarafından : {req_by} 🥀\n\n<b>» Sırada başka parça yok 😕 Yatmaya Gidiyorum</b> 𝐄𝐥𝐥𝐞𝐬̧𝐦𝐞 😏",
                 reply_markup=close_key,
             )
         except:
@@ -72,6 +72,6 @@ async def skip_str(_, message: Message):
         img = await gen_thumb(videoid, user_id)
         return await message.reply_photo(
             photo=img,
-            caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> <a href={0}>{1}</a>\n<b>⌛️Süre :</b> {2} 𝒟𝒶𝓀𝒾𝓀𝒶\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {3}",
+            caption=f"➲ <b>Yαყıɳ Bαʂ̧ʅαԃı |</b>\n\n<b>🔘Başlık :</b> [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n<b>⌛️Süre :</b> `{duration}`\n<b>‣ 𝐓𝐚𝐥𝐞𝐩 𝐄𝐝𝐞𝐧° ☔️ :</b> {req_by}",
             reply_markup=buttons,
         )
