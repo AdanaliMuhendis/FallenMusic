@@ -144,7 +144,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f "» Üzgünüm, İzin verilen sürei aştınız. Lütfen uygun bir parça ekleyiniz.  {DURATION_LIMIT} Eminim daha güzel bir parça bulacaksınızdır. {BOT_NAME}."
+                f"» Üzgünüm Parça Ayrıntıları Getirilemedi! {DURATION_LIMIT} Oynatma Süresi Çok Uzun {BOT_NAME}"
             )
 
         file_name = get_file_name(audio)
@@ -173,7 +173,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             return await fallen.edit_text(
-                f"» Üzgünüm, İzin verilen sürei aştınız. Lütfen uygun bir parça ekleyiniz.  {DURATION_LIMIT} Eminim daha güzel bir parça bulacaksınızdır. {BOT_NAME}."
+                f"» Üzgünüm Parça Ayrıntıları Getirilemedi! {DURATION_LIMIT} Oynatma Süresi Çok Uzun {BOT_NAME}"
             )
         file_path = audio_dl(url)
     else:
@@ -199,7 +199,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             return await fallen.edit(
-                f"» Üzgünüm, İzin verilen sürei aştınız. Lütfen uygun bir parça ekleyiniz.  {DURATION_LIMIT} Eminim daha güzel bir parça bulacaksınızdır. {BOT_NAME}."
+                f"» Üzgünüm Parça Ayrıntıları Getirilemedi! {DURATION_LIMIT} Oynatma Süresi Çok Uzun {BOT_NAME}"
             )
         file_path = audio_dl(url)
 
