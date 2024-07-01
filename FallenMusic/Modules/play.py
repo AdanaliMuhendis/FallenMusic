@@ -144,7 +144,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f "<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika\n**Alınan Süre:** {1} dakika(s)<b>"
+                f "<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika<b>"
             )
 
         file_name = get_file_name(audio)
@@ -173,7 +173,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             return await fallen.edit_text(
-                f"<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika\n**Alınan Süre:** {1} dakika(s)<b>"
+                f"<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika<b>"
             )
         file_path = audio_dl(url)
     else:
@@ -199,7 +199,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             return await fallen.edit(
-                f"<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika\n**Alınan Süre:** {1} dakika(s)<b>"
+                f"<b>» Süre Sınırı Aşıldı**\n\n**İzin Verilen Süre: **{0} dakika<b>"
             )
         file_path = audio_dl(url)
 
