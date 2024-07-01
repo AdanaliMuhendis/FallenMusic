@@ -62,7 +62,7 @@ async def fallen_st(_, message: Message):
 🔗 **ʟɪɴᴋ :** [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})
 🎥 **Kanal :** [{channel}]({channellink})
 
-💖 sᴇᴀʀᴄʜ ᴩᴏᴡᴇʀᴇᴅ ʙʏ {BOT_NAME}"""
+💖 Hızlıyım dimi 👀 {BOT_NAME}"""
                 key = InlineKeyboardMarkup(
                     [
                         [
