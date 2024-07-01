@@ -186,7 +186,7 @@ async def unban_ass(_, CallbackQuery):
             await app.unban_chat_member(int(chat_id), ASS_ID)
         except:
             return await CallbackQuery.answer(
-                ""<b>» Asistan, grubunuz veya kanalınızda yasaklanmış, lütfen yasağı kaldırın.",
+                "<b>» Asistan, grubunuz veya kanalınızda yasaklanmış, lütfen yasağı kaldırın.",
                 show_alert=True,
             )
         return await CallbackQuery.edit_message_text(
