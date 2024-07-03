@@ -28,7 +28,7 @@ from FallenMusic import BOT_USERNAME
 close_key = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="𝐊𝐀𝐏𝐀𝐓°", callback_data="close")
+            InlineKeyboardButton(text="𝐊𝐀𝐏𝐀𝐓°", callback_data="close"),
         ]
     ]
 )
@@ -37,10 +37,7 @@ close_key = InlineKeyboardMarkup(
 buttons = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="♐", callback_data="resume_cb"),
-            InlineKeyboardButton(text="♓", callback_data="pause_cb"),
-            InlineKeyboardButton(text="♏", callback_data="skip_cb"),
-            InlineKeyboardButton(text="📴", callback_data="end_cb"),
+            InlineKeyboardButton(text="𝐊𝐀𝐏𝐀𝐓°", callback_data="close"),
         ]
     ]
 )
