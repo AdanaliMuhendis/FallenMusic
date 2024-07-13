@@ -55,7 +55,7 @@ HELP_TEXT = f"""
 """
 
 HELP_SUDO = f"""
-<u>✨ **Yetkili Kullanıcılar {BOT_NAME} :**</u>
+<u>✨ **Yönetici Komutları {BOT_NAME} :**</u>
 
 ๏ /activevc : sʜᴏᴡs ᴛʜᴇ ʟɪsᴛ ᴏғ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇᴄʜᴀᴛs.
 ๏ /eval or /sh : ʀᴜɴs ᴛʜᴇ ɢɪᴠᴇɴ ᴄᴏᴅᴇ ᴏɴ ᴛʜᴇ ʙᴏᴛ's ᴛᴇʀᴍɪɴᴀʟ.
@@ -69,7 +69,7 @@ HELP_SUDO = f"""
 """
 
 HELP_DEV = f"""
-<u>✨ **ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅs ɪɴ {BOT_NAME} :**</u>
+<u>✨ **Sahip Komutları {BOT_NAME} :**</u>
 
 ๏ /config : ᴛᴏ ɢᴇᴛ ᴀʟʟ ᴄᴏɴꜰɪɢ ᴠᴀʀɪᴀʙʟᴇꜱ ᴏꜰ ʙᴏᴛ.
 ๏ /broadcast [ᴍᴇssᴀɢᴇ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ] : ʙʀᴏᴀᴅᴄᴀsᴛ ᴛʜᴇ ᴍᴇssᴀɢᴇ ᴛᴏ sᴇʀᴠᴇᴅ ᴄʜᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.
