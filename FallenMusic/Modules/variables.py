@@ -35,7 +35,7 @@ async def get_vars(_, message: Message):
     try:
         await app.send_message(
             chat_id=int(config.OWNER_ID),
-            text=f"""<u>**{BOT_NAME} ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs :**</u>
+            text=f"""<u>**{BOT_NAME} Yapılandırma Değişkenleri:**</u>
 
 **ᴀᴘɪ_ɪᴅ :** `{config.API_ID}`
 **ᴀᴘɪ_ʜᴀsʜ :** `{config.API_HASH}`
@@ -54,8 +54,8 @@ async def get_vars(_, message: Message):
             disable_web_page_preview=True,
         )
     except:
-        return await message.reply_text("» ғᴀɪʟᴇᴅ ᴛᴏ sᴇɴᴅ ᴛʜᴇ ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs.")
+        return await message.reply_text("» Yapılandırma Değişkenleri Gönderiminde Hata Oluştu.")
     if message.chat.type != ChatType.PRIVATE:
         await message.reply_text(
-            "» ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴘᴍ, ɪ'ᴠᴇ sᴇɴᴛ ᴛʜᴇ ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs ᴛʜᴇʀᴇ."
+            "» Lütfen PM Kontrol Et Bebeğim 🙃, İsteğiniz Gerçekleşti."
         )
