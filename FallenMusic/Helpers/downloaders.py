@@ -44,7 +44,7 @@ ydl = YoutubeDL(ydl_opts)
 
 
 def audio_dl(url: str) -> str:
-    sin = ydl.extract_info(url, False)
+    sin = ydl.extract_info(url, True)
     x_file = os.path.join("downloads", f"{sin['id']}.mp3")
     if os.path.exists(x_file):
         return x_file
